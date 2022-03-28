@@ -10,6 +10,8 @@ public class ZsyDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ZsyDemoApplication.class, args);
+        System.out.println("Git Test");
     }
+
 
 }
