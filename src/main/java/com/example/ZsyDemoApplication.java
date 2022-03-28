@@ -12,6 +12,7 @@ public class ZsyDemoApplication {
         SpringApplication.run(ZsyDemoApplication.class, args);
         System.out.println("Git Test");
         System.out.println("hot-fix's words!~");
+        System.out.println("push test");
     }
 
 
