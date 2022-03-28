@@ -15,6 +15,7 @@ class ZsyDemoApplicationTests {
         System.out.println(userService.queryUserByName("ay"));
         User user=new User(null,"aa","1",null);
          userService.addUser(user);
+         System.out.println("pull test");
     }
 
 }
