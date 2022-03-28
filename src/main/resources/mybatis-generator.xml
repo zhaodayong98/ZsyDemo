@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--用于逆向工程-->
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- mybatis-generator:generate -->
+    <context id="atguiguTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!--  是否去除自动生成的注释 true:是;false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection
+                driverClass="com.mysql.cj.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC"
+                userId="root"
+                password="123456">
+        </jdbcConnection>
+        <!--  默认 false，把 JDBC DECIMAL  和 NUMERIC  类型解析为 Integer，为 true 时把
+        JDBC DECIMAL
+        和 NUMERIC  类型解析为 java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!-- targetProject:生成 Entity 类的路径 -->
+        <javaModelGenerator targetProject=".\src\main\java"
+                            targetPackage="com.atguigu.crowd.entity">
+            <!-- enableSubPackages:是否让 schema 作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!--  从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- targetProject:XxxMapper.xml 映射文件生成的路径 -->
+        <sqlMapGenerator targetProject=".\src\main\java"
+                         targetPackage="com.atguigu.crowd.mapper">
+            <!-- enableSubPackages:是否让 schema 作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!-- targetPackage：Mapper 接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetProject=".\src\main\java"
+                             targetPackage="com.atguigu.crowd.mapper">
+            <!-- enableSubPackages:是否让 schema 作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+        <!--  数据库表名字和我们的 entity 类对应的映射指定 -->
+        <table tableName="user" domainObjectName="User" />
+    </context>
+</generatorConfiguration>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+<!--<!DOCTYPE generatorConfiguration PUBLIC-->
+<!--        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">-->
+
+<!--<generatorConfiguration>-->
+
+<!--    <context id="context" targetRuntime="MyBatis3Simple">-->
+
+<!--        &lt;!&ndash; JDBC连接数据库 &ndash;&gt;-->
+<!--        <jdbcConnection userId="root" password="123456"-->
+<!--                        driverClass="com.mysql.cj.jdbc.Driver"-->
+<!--                        connectionURL="jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;rewriteBatchedStatements=true&amp;nullCatalogMeansCurrent=true"/>-->
+
+<!--        <javaTypeResolver>-->
+<!--            &lt;!&ndash; 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） &ndash;&gt;-->
+<!--            <property name="forceBigDecimals" value="false"/>-->
+<!--        </javaTypeResolver>-->
+<!--        &lt;!&ndash; 数据表对应的model层  domain &ndash;&gt;-->
+<!--        &lt;!&ndash; 生成实体类地址 这里需要你改动，其中targetPackage需要根据你自己创建的目录进行改动 &ndash;&gt;-->
+<!--        <javaModelGenerator targetPackage="com.example.pojo" targetProject="src/main/java">-->
+<!--            &lt;!&ndash; enableSubPackages:是否让schema作为包的后缀 &ndash;&gt;-->
+<!--            <property name="enableSubPackages" value="false"/>-->
+<!--            &lt;!&ndash; 从数据库返回的值被清理前后的空格 &ndash;&gt;-->
+<!--            <property name="trimStrings" value="true"/>-->
+<!--        </javaModelGenerator>-->
+
+<!--        &lt;!&ndash; 生成mapper.xml文件 &ndash;&gt;-->
+<!--        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">-->
+<!--            &lt;!&ndash; enableSubPackages:是否让schema作为包的后缀 &ndash;&gt;-->
+<!--            <property name="enableSubPackages" value="false"/>-->
+<!--        </sqlMapGenerator>-->
+
+<!--        &lt;!&ndash; 生成mapper接口   这里需要改动targetPackage，依据你自己的工程&ndash;&gt;-->
+<!--        <javaClientGenerator targetPackage="com.example.mapper" type="XMLMAPPER" targetProject="src/main/java">-->
+<!--            <property name="enableSubPackages" value="false"/>-->
+<!--        </javaClientGenerator>-->
+
+<!--        &lt;!&ndash; 配置表信息 &ndash;&gt;-->
+<!--        &lt;!&ndash; schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample是否生成 example类 &ndash;&gt;-->
+<!--        <table schema="mybatis" domainObjectName="User" tableName="user"-->
+<!--               enableCountByExample="true" enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true" enableUpdateByExample="true">-->
+<!--            &lt;!&ndash; 解决mybatis generator生成实体类和数据库字段名不一致 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+<!--    </context>-->
+<!--</generatorConfiguration>-->
